@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Something for Mikayla ✨</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #ffb7e5;
+  --purple: #c9a7ff;
+  --white: #fff7ff;
+  --glass: rgba(255, 255, 255, 0.07);
+}
+
+body {
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--white);
+  background:
+    radial-gradient(ellipse at top, #30205d 0%, transparent 55%),
+    linear-gradient(145deg, #080b22, #17102f 55%, #100b24);
+  overflow-x: hidden;
+  text-align: center;
+}
+
+.stars, .hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  color: white;
+  opacity: 0.65;
+  animation: twinkle 3s infinite ease-in-out alternate;
+}
+
+.heart {
+  position: absolute;
+  bottom: -50px;
+  color: #ffb7e5;
+  opacity: 0;
+  animation: floatUp 12s linear infinite;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.2; transform: scale(0.8); }
+  to { opacity: 0.95; transform: scale(1.2); }
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  15% { opacity: 0.55; }
+  85% { opacity: 0.45; }
+  100% { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  width: min(720px, 92%);
+  margin: auto;
+  padding: 55px 0 35px;
+}
+
+.moon {
+  font-size: 58px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 22px #d5b8ff);
+  animation: moonGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes moonGlow {
+  from { filter: drop-shadow(0 0 10px #c8a2ff); }
+  to { filter: drop-shadow(0 0 30px #f7b8f0); }
+}
+
+.eyebrow {
+  color: var(--pink);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font: 11px Arial, sans-serif;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-size: clamp(36px, 8vw, 61px);
+  line-height: 1.15;
+  font-weight: normal;
+  background: linear-gradient(90deg, #fff5ff, #ffb7e5, #c9b1ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 22px;
+}
+
+.subtitle {
+  max-width: 550px;
+  margin: 0 auto;
+  line-height: 1.9;
+  color: #e2d8f5;
+  font-size: 17px;
+}
+
+.divider {
+  margin: 30px auto;
+  color: var(--pink);
+  letter-spacing: 9px;
+}
+
+.card {
+  background: var(--glass);
+  border: 1px solid rgba(226, 195, 255, 0.2);
+  border-radius: 22px;
+  padding: 27px 23px;
+  margin: 22px 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+h2 {
+  color: var(--pink);
+  font-size: 25px;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #e8e0f7;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+button {
+  margin-top: 21px;
+  padding: 13px 21px;
+  border: 1px solid rgba(255, 211, 248, 0.55);
+  border-radius: 30px;
+  background: linear-gradient(110deg, #4a327b, #743e79);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-family: Arial, sans-serif;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(255, 183, 229, 0.28);
+}
+
+.message {
+  min-height: 65px;
+  margin-top: 20px;
+  color: #ffe0f5;
+  line-height: 1.8;
+  font-size: 17px;
+  animation: appear 0.5s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.choices button {
+  margin-top: 0;
+  padding: 14px 8px;
+  line-height: 1.5;
+}
+
+.hidden {
+  display: none;
+}
+
+.reveal {
+  color: #ffe0f5;
+  font-size: 17px;
+  line-height: 2;
+  margin-top: 22px;
+}
+
+.signature {
+  margin-top: 42px;
+  padding: 25px 10px;
+  line-height: 1.9;
+  color: #d9c8f4;
+  font-size: 15px;
+}
+
+.signature strong {
+  display: block;
+  font-size: 25px;
+  font-weight: normal;
+  color: var(--pink);
+  margin-top: 7px;
+}
+
+footer {
+  color: #998ab8;
+  font: 11px Arial, sans-serif;
+  letter-spacing: 1px;
+  padding: 15px 0 30px;
+}
+
+@media (max-width: 480px) {
+  main { padding-top: 38px; }
+  .card { padding: 23px 17px; }
+  .subtitle { font-size: 16px; }
+  .choices { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+<div class="hearts" id="hearts"></div>
+
+<main>
+  <div class="moon">☾</div>
+
+  <div class="eyebrow">A little something just for you</div>
+
+  <h1>Mikayla,<br>maybe it's you ✨</h1>
+
+  <p class="subtitle">
+    Some things are too sweet to leave unsaid.
+    So here's a tiny corner of the universe,
+    made just for you, with a little hope,
+    a few butterflies, and a whole lot of heart. ♡
+  </p>
+
+  <div class="divider">✧ · ♡ · ✧</div>
+
+  <section class="card">
+    <h2>So... it's mutual? ♡</h2>
+    <p>
+      Imagine liking someone and wondering if they feel
+      the same way, only to find out that they do.
+      Isn't it a little magical when two hearts have
+      been feeling something similar all along?
+    </p>
+    <p style="margin-top: 13px;">
+      Maybe this is one of those little moments
+      you'll both look back on and smile about.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>A little reminder 🌙</h2>
+    <p>
+      You don't have to rush into anything or have
+      every little thing figured out.
+      You can take your time, get to know each other
+      even more, laugh over silly things, and let
+      something beautiful grow naturally.
+    </p>
+    <p style="margin-top: 13px;">
+      The best beginnings don't need to be perfect.
+      Sometimes, they just need two people who care.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>A tiny message for you 💌</h2>
+    <p>
+      Whenever you need a little smile,
+      tap the button below.
+    </p>
+
+    <button onclick="newMessage()">Open a little reminder ♡</button>
+    <div class="message" id="dailyMessage" aria-live="polite">
+      There's something lovely about knowing the feeling is mutual. ✨
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>What if this is the beginning? ✨</h2>
+    <p>
+      Not a promise about the future.
+      Not pressure to label anything.
+      Just the possibility of something really sweet.
+    </p>
+
+    <button onclick="revealMessage()">There's one more thing...</button>
+
+    <div class="reveal hidden" id="secretMessage" aria-live="polite">
+      Mikayla, maybe one day you'll have your own little
+      traditions, your own inside jokes, and memories
+      that make absolutely no sense to anyone else.
+      <br><br>
+      Maybe you'll look at each other and wonder how
+      something so unexpected became something so special.
+      <br><br>
+      For now, just enjoy the butterflies.
+      You deserve to enjoy a happy beginning. ♡
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Your next little chapter 🌷</h2>
+    <p>
+      Every story begins somewhere.
+      Which little possibility sounds the sweetest?
+    </p>
+
+    <div class="choices">
+      <button onclick="choose(0)">More late-night talks 🌙</button>
+      <button onclick="choose(1)">Cute little dates 🌷</button>
+      <button onclick="choose(2)">Inside jokes forever ♡</button>
+      <button onclick="choose(3)">Taking it slowly ✨</button>
+    </div>
+
+    <div class="message" id="choiceMessage" aria-live="polite"></div>
+  </section>
+
+  <div class="divider">✧ · ♡ · ✧</div>
+
+  <section class="card">
+    <h2>And finally, Mikayla...</h2>
+    <p>
+      Whatever happens next, I hope this little moment
+      brings you a smile.
+      You don't need to know where the story will lead
+      to appreciate the fact that it has begun.
+      <br><br>
+      Two people liked each other.
+      They found out it was mutual.
+      And now there's a little possibility of something
+      beautiful waiting to unfold.
+      <br><br>
+      Honestly, that's already pretty special. ♡
+    </p>
+  </section>
+
+  <div class="signature">
+    Made with a little hope, a lot of butterflies,
+    and the sweetest intentions.
+    <strong>Love, Sheridan ♡</strong>
+  </div>
+
+  <footer>
+    MADE ESPECIALLY FOR MIKAYLA · WITH LOVE ✦
+  </footer>
+</main>
+
+<script>
+const starContainer = document.getElementById("stars");
+const heartContainer = document.getElementById("hearts");
+
+for (let i = 0; i < 95; i++) {
+  const star = document.createElement("span");
+  star.className = "star";
+  star.textContent = Math.random() > 0.5 ? "✦" : "·";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.fontSize = (Math.random() * 12 + 5) + "px";
+  star.style.animationDelay = Math.random() * 4 + "s";
+  star.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  starContainer.appendChild(star);
+}
+
+for (let i = 0; i < 15; i++) {
+  const heart = document.createElement("span");
+  heart.className = "heart";
+  heart.textContent = ["♡", "♥", "✧"][i % 3];
+  heart.style.left = Math.random() * 100 + "%";
+  heart.style.fontSize = (Math.random() * 18 + 12) + "px";
+  heart.style.animationDelay = (Math.random() * 12) + "s";
+  heart.style.animationDuration = (Math.random() * 8 + 10) + "s";
+  heartContainer.appendChild(heart);
+}
+
+const messages = [
+  "It's okay to smile at your screen. Some people really do give you butterflies. ♡",
+  "You don't need to rush a good thing. Let it grow at its own pace. 🌷",
+  "Being liked back by someone you like? That's a pretty lovely feeling. ✨",
+  "May your conversations turn into memories you never want to forget. 💌",
+  "You deserve something that feels gentle, honest, and happy. ♡",
+  "Maybe the best part is that you get to discover what happens next. 🌙",
+  "Here's to little smiles, unexpected butterflies, and happy beginnings. ✧",
+  "You can enjoy this moment without needing to figure out the whole future. 💗"
+];
+
+let lastMessage = -1;
+
+function newMessage() {
+  let index;
+  do {
+    index = Math.floor(Math.random() * messages.length);
+  } while (index === lastMessage);
+
+  lastMessage = index;
+  const box = document.getElementById("dailyMessage");
+  box.textContent = messages[index];
+  box.style.animation = "none";
+  void box.offsetWidth;
+  box.style.animation = "appear 0.5s ease";
+}
+
+function revealMessage() {
+  const secret = document.getElementById("secretMessage");
+  secret.classList.toggle("hidden");
+}
+
+const choices = [
+  "More conversations mean more chances to learn all the little things that make each other smile. 🌙",
+  "A simple date could become one of those memories you both keep coming back to. 🌷",
+  "One day, your inside jokes might become a whole language of your own. ♡",
+  "There's no deadline for a good beginning. Take your time and enjoy getting to know each other. ✨"
+];
+
+function choose(index) {
+  const box = document.getElementById("choiceMessage");
+  box.textContent = choices[index];
+  box.style.animation = "none";
+  void box.offsetWidth;
+  box.style.animation = "appear 0.5s ease";
+}
+</script>
+
+</body>
+</html>
